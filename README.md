@@ -100,43 +100,6 @@ npm run server
 
 Your keys stay on the server and are never sent to the browser. If any service can't be reached, the app falls back to built-in demo data and tells you so.
 
-## 📱 Get it on your phone
-
-**Option 1: Install it (fastest).** Host the `www/` folder on HTTPS (Netlify, Vercel, GitHub Pages…). On Android Chrome, tap **Install on Android**. On iPhone, tap Share → *Add to Home Screen*.
-
-**Option 2: Build a real Android app** (Android Studio and JDK 17 required):
-
-```bash
-npx cap add android
-npx cap sync android
-npx cap open android      # Build → Generate Signed Bundle / APK
-```
-
-Add location permission to `android/app/src/main/AndroidManifest.xml`:
-
-```xml
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-```
-
-Copy the built APK to `www/downloads/waypoint.apk` and the **Download APK** button will serve it. For Google Play you'll also need a developer account, a store listing and a privacy policy.
-
-## 🗂️ Project layout
-
-```
-waypoint/
-├─ www/                     the app
-│  ├─ index.html            page shell
-│  ├─ styles.css            all styling, incl. dark mode
-│  ├─ app.js                UI + the replanning engine
-│  ├─ providers.js          live-data layer (maps, weather, chargers)
-│  ├─ sw.js, manifest.webmanifest, icons/   PWA bits
-│  └─ downloads/            project .zip (+ your APK)
-├─ server/server.js         tiny Node server: serves the app, hides API keys
-├─ capacitor.config.json    Android wrapper config
-├─ .env.example             API keys template
-└─ package.json
-```
 
 ## 🧪 Try the demo
 
@@ -146,20 +109,9 @@ waypoint/
 4. 🔒 Lock the optional viewpoint first, then repeat. Nothing gets removed, and the hotel arrival is flagged as at risk instead.
 5. Click **Load live data** to pull real weather and chargers.
 
-## ⚠️ Honest limitations
-
-This is a working prototype, not a finished product.
-
-- Restaurants, hotels and stops in the itinerary are **demo data**. Only weather, route distance and nearby chargers can come from live services.
-- **Booking** isn't connected: there's no free public API for it, so statuses stay "Not checked" or "external".
-- Roadside buttons are placeholders. No partner is connected.
-- No accounts or cross-device sync yet, so there is no real backend database.
-- No iOS app yet (the web app installs via *Add to Home Screen*).
-- The free OSRM, Nominatim and Overpass servers are for light use. Use paid or self-hosted ones in production.
-
 ## 🛠️ Built with
 
-Vanilla HTML / CSS / JavaScript · Node.js (zero dependencies) · Service Worker · Capacitor
+Vanilla HTML / CSS / JavaScript 
 
 ## 🗺️ Roadmap
 
