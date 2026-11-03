@@ -1,0 +1,17 @@
+{
+  "name": "waypoint-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "npx serve www",
+    "android:add": "cap add android",
+    "sync": "cap sync android",
+    "android:open": "cap open android",
+    "android:run": "cap run android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/cli": "^6.0.0",
+    "@capacitor/core": "^6.0.0"
+  }
+}
